@@ -45,8 +45,8 @@ def get_prompt() -> str:
 
     # Define the command list
     commands = [
-        ("Generate Picture", "draw_picture", {"prompt": "<prompt>"}),
-        ("Explain Picture", "explain_picture", {"prompt": "<prompt>"}),
+        ("Draw a Picture", "draw_picture", {"prompt": "<prompt>"}),
+        ("Explain the Picture", "explain_picture", {"prompt": "<prompt>"}),
         ("Google Search", "google", {"input": "<search>"}),
         # (
         #     "Browse Website",

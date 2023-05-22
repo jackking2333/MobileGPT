@@ -83,6 +83,7 @@ class Agent:
             assistant_reply_json = fix_json_using_multiple_techniques(assistant_reply)
 
             # Print Assistant thoughts
+            # 从assistant_reply_json中提取出command
             if assistant_reply_json != {}:
                 validate_json(assistant_reply_json, "llm_response_format_1")
                 # Get command name and arguments

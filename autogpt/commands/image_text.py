@@ -1,6 +1,6 @@
 """Commands for converting image to text."""
 import json
-
+import os
 import requests
 
 # from autogpt.commands.command import command
@@ -25,8 +25,11 @@ CFG = Config()
 def image_to_text(prompt: str) -> str:
     if "生成" in prompt or "generate" in prompt or "upload" in prompt or "网络" in prompt or "画" in prompt:
         filename = 'generate.jpg'
-    else:
+    elif "上传" in prompt: 
         filename = 'upload.jpg'
+    else:
+        filename = 'generate.jpg' if os.path.exists('/home/sjx/Project/MobileGPT/mobile_gpt_workspace/generate.jpg') else 'upload.jpg'
+        
     # 设置请求参数
     url = 'http://127.0.0.1:12345/predict'
     # filename = '/home/public/pj/Project/AutoGPT/AutoGPT-UI/image.jpg'

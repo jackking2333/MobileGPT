@@ -127,13 +127,13 @@ with gr.Blocks(css=CSS, title='中国移动智能对话平台') as app:
             return None
         filename = 'upload.jpg'
         # save_path = path_in_workspace(filename)
-        save_path = '/home/public/pj/Project/Mobile-GPT/mobile_gpt_workspace/' + filename
+        save_path = '/home/sjx/Project/MobileGPT/mobile_gpt_workspace/' + filename
         gr_img.save(save_path)
         return gr.update(interactive=False),gr.update(value="上传完成", interactive=False)
     def show_img(gr_img):
         filename = 'generate.jpg'
         # generate_path = path_in_workspace(filename)
-        generate_path = '/home/public/pj/Project/Mobile-GPT/mobile_gpt_workspace/'+filename
+        generate_path = '/home/sjx/Project/MobileGPT/mobile_gpt_workspace/'+filename
         return Image.open(generate_path),gr.update(value="刷新", interactive=True)
     start_btn.click(
         start,
