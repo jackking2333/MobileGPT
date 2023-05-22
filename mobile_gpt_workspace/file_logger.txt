@@ -1,0 +1,23 @@
+File Operation Logger write: web_layout.html
+write: starlink_report.txt
+write: starslink_summary.txt
+write: starslink_report.txt
+write: index.html
+write: index.html
+write: index.html
+write: index.html
+write: /home/public/pj/Project/Mobile-GPT/mobile_gpt_workspace/index.html
+write: index.html
+append: index.html
+write: index.html
+append: index.html
+write: style.css
+append: index.html
+write: index.html
+append: style.css
+append: index.html
+append: index.html
+append: style.css
+append: index.html
+write: starslink_info.txt
+write: starslink_research.txt
