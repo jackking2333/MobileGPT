@@ -9,8 +9,7 @@ from autogpt.logs import logger, print_assistant_thoughts
 from autogpt.speech import say_text
 from autogpt.spinner import Spinner
 from autogpt.utils import clean_input
-
-
+import time
 class Agent:
     """Agent class for interacting with Auto-GPT.
 

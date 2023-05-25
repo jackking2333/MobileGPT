@@ -89,7 +89,7 @@ def create_chat_completion(
                     temperature=temperature,
                     max_tokens=max_tokens,
                 )
-            else:
+            else:    
                 response = openai.ChatCompletion.create(
                     model=model,
                     messages=messages,

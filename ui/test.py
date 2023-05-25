@@ -1,8 +1,10 @@
 from __future__ import annotations
 import openai
 import json
+from itertools import islice
 import deepl
-from duckduckgo_search import ddg
+# from duckduckgo_search import ddg
+from duckduckgo_search import DDGS
 auth_key = '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'
 translator = deepl.Translator(auth_key)
 
@@ -21,22 +23,16 @@ def google_search(query: str, num_results: int = 8) -> str:
     search_results = []
     if not query:
         return json.dumps(search_results)
-
-    results = ddg(query, max_results=num_results)
+    # results = ddg(query, max_results=num_results)
+    results = DDGS().text(query)
     if not results:
         return json.dumps(search_results)
 
-    for j in results:
-        search_results.append(j)
+    # for j in results:
+    #     search_results.append(j)
+    for item in islice(results, num_results):
+        search_results.append(item)
 
     return json.dumps(search_results, ensure_ascii=False, indent=4)
 
-# print(google_search('星链StarsLink'))
-
-openai.api_key = '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'
-OUTPUT_FILE = "model_list.txt"
-modelList = openai.Model.list() 
-with open(OUTPUT_FILE, "a") as f:
-    for d in modelList.data:
-        f.write(d.id)
-        f.write("\n")
+print(google_search('星链StarsLink'))
