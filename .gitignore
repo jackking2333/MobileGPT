@@ -6,6 +6,7 @@ autogpt/__pycache__/keys.cpython-310.pyc
 autogpt/mobile_gpt_wordspace/*
 autogpt/auto_gpt_workspace
 package-lock.json
+ui/*
 *.pyc
 auto_gpt_workspace/*
 *.mpeg
