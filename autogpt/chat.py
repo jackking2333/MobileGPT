@@ -6,7 +6,7 @@ from autogpt import token_counter
 from autogpt.config import Config
 from autogpt.llm_utils import create_chat_completion
 from autogpt.logs import logger
-
+from retrying import retry
 cfg = Config()
 
 
@@ -50,6 +50,7 @@ def generate_context(prompt, relevant_memory, full_message_history, model):
 
 
 # TODO: Change debug from hardcode to argument
+@retry
 def chat_with_ai(
     prompt, user_input, full_message_history, permanent_memory, token_limit
 ):

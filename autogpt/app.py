@@ -32,7 +32,7 @@ from autogpt.json_utils.json_fix_llm import fix_and_parse_json
 from autogpt.memory import get_memory
 from autogpt.processing.text import summarize_text
 from autogpt.speech import say_text
-
+from retrying import retry
 CFG = Config()
 AGENT_MANAGER = AgentManager()
 
@@ -215,9 +215,9 @@ def execute_command(command_name: str, arguments):
         #     return generate_image(arguments["prompt"])
         # elif command_name == "image_text":
         #     return image_to_text(arguments["prompt"])
-        elif command_name == "draw_picture":
+        elif command_name == "draw_img":
             return generate_image(arguments["prompt"])
-        elif command_name == "explain_picture":
+        elif command_name == "explain_img":
             return image_to_text(arguments["prompt"])
         
         elif command_name == "send_tweet":
@@ -268,7 +268,7 @@ def shutdown() -> NoReturn:
     print("Shutting down...")
     quit()
 
-
+@retry
 def start_agent(name: str, task: str, prompt: str, model=CFG.fast_llm_model) -> str:
     """Start an agent with a given name, task, and prompt
 

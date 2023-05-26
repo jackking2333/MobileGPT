@@ -3,8 +3,10 @@ autogpt/keys.py
 autogpt/*json
 autogpt/node_modules/
 autogpt/__pycache__/keys.cpython-310.pyc
+mobile_gpt_wordspace/*
 autogpt/auto_gpt_workspace
 package-lock.json
+ui/*
 *.pyc
 auto_gpt_workspace/*
 *.mpeg

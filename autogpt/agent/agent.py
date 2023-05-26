@@ -9,8 +9,7 @@ from autogpt.logs import logger, print_assistant_thoughts
 from autogpt.speech import say_text
 from autogpt.spinner import Spinner
 from autogpt.utils import clean_input
-
-
+import time
 class Agent:
     """Agent class for interacting with Auto-GPT.
 
@@ -83,6 +82,7 @@ class Agent:
             assistant_reply_json = fix_json_using_multiple_techniques(assistant_reply)
 
             # Print Assistant thoughts
+            # 从assistant_reply_json中提取出command
             if assistant_reply_json != {}:
                 validate_json(assistant_reply_json, "llm_response_format_1")
                 # Get command name and arguments

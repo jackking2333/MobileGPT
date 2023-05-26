@@ -2,8 +2,10 @@
 from __future__ import annotations
 
 import json
+from itertools import islice
 import deepl
 from duckduckgo_search import ddg
+from duckduckgo_search import DDGS
 auth_key = 'c4953a25-5ca7-3b65-c0bd-0823b102977d:fx'
 translator = deepl.Translator(auth_key)
 from autogpt.config import Config
@@ -26,13 +28,15 @@ def google_search(query: str, num_results: int = 8) -> str:
     if not query:
         return json.dumps(search_results)
 
-    results = ddg(query, max_results=num_results)
+    # results = ddg(query, max_results=num_results)
+    results = DDGS().text(query)
     if not results:
         return json.dumps(search_results)
 
-    for j in results:
-        search_results.append(j)
-
+    # for j in results:
+    #     search_results.append(j)
+    for item in islice(results, num_results):
+        search_results.append(item)
     return json.dumps(search_results, ensure_ascii=False, indent=4)
 
 
